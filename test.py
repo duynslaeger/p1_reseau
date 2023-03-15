@@ -1,7 +1,7 @@
 import pyshark
 
-cap = pyshark.FileCapture('/tmp/mycapture.cap')
+cap = pyshark.FileCapture('TRACES/TRACE_msg_and_answer.pcapng')
 
-pkt = cap[1]
+pkt = cap[3]
 
 print(pkt)
