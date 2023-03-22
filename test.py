@@ -1,8 +1,10 @@
 import pyshark
 
-cap = pyshark.FileCapture('TRACES/TRACE_call_without_camera.pcapng')
+cap = pyshark.FileCapture('TRACES/TRACE_msg_and_answer.pcapng')
 
-# pkt = cap[3]
+pkt = cap[3]
+
+
 
 # # print(pkt.ipv6)  # = pkt.layer[1]
 # print(pkt.ipv6.addr)
@@ -32,13 +34,13 @@ i = 0
 # print(pkt.layers)
 # print(pkt.tls.record)
 
-for pkt in cap:
-    i += 1
-    if "TLS" in pkt :
-        print(i)
-        print(pkt.tls)
-        print(pkt.tls.record)
-        if(pkt.tls.record == "TLSv1.2 Record Layer: Handshake Protocol: Certificate"):
-            print("Packet "+str(i)+" is a Certificate exchange")
+# for pkt in cap:
+#     i += 1
+#     if "TLS" in pkt :
+#         print(i)
+#         print(pkt.tls)
+#         print(pkt.tls.record)
+#         if(pkt.tls.record == "TLSv1.2 Record Layer: Handshake Protocol: Certificate"):
+#             print("Packet "+str(i)+" is a Certificate exchange")
 # print(pkt.tls)
 # print(pkt)
