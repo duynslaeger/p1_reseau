@@ -1,9 +1,28 @@
 import pyshark
 
-cap = pyshark.FileCapture('TRACES/TRACE_msg_and_answer.pcapng')
+# cap = pyshark.FileCapture('TRACES/TRACE_msg_and_answer.pcapng')
+cap = pyshark.FileCapture('TRACES/TRACE_ECHANGE_MSG.pcapng')
+time_exch_0 = cap_cam[2].sniff_timestamp # car l'envoi de message commence au 2e paquet
 
 pkt = cap[3]
 
+x_exch = []
+y_exch = []
+
+pkt_nbr = 0
+
+for pkt in cap_exch:
+    t = float(pkt.sniff_timestamp) - float(time_exch_0)
+    # print(t)
+    if(t < 0):
+        continue
+    if(t > 30):
+        break
+    else:
+    	print(pkt)
+    	pkt_nbr += 1
+    	x_exch.append(t)
+    	y_exch.append(pkt_nbr)
 
 
 # # print(pkt.ipv6)  # = pkt.layer[1]
